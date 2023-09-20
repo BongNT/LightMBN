@@ -17,7 +17,7 @@ import torch
 
 if args.config != '':
     with open(args.config, 'r') as f:
-        config = yaml.load(f)
+        config = yaml.safe_load(f)
     for op in config:
         setattr(args, op, config[op])
 torch.backends.cudnn.benchmark = True
